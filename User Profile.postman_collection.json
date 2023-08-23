@@ -1,0 +1,1474 @@
+{
+	"info": {
+		"_postman_id": "5e4794a5-c890-4228-b20d-4fdbf98832d1",
+		"name": "User Profile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20123021"
+	},
+	"item": [
+		{
+			"name": "Авторизация",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Svetlana1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "9b68b8c1fa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/login",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение токена для второго пользователя",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Alex2000",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "13cd3bb7a6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/login",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение информации о зарегистрированном пользователе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://test-stand.gb.ru/api/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"api",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение информации о пользователе с чужим токеном",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://test-stand.gb.ru/api/users/profile/22505",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"api",
+						"users",
+						"profile",
+						"22505"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удачное обновление информации о пользователе (все поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с пустым полем firstName (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с пустым полем lastName (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с пустым полем username (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 2400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с пустым полем phone (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с пустым полем sex (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с пустым полем birthDate (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с невалидными данными в поле firstName (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "S",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с невалидными данными в поле lastName (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Я",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с невалидными данными в поле username (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "№",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с невалидными данными в поле phone (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "589638",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с невалидными данными в поле sex (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с невалидными данными в поле birthDate (остальные поля заполнены валидными данными)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "SvetlanaLapteva",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "31.04.2023",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос с неуникальным логином",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "W9PF_-tV5/IMG_20230528_194709.jpg"
+						},
+						{
+							"key": "firstName",
+							"value": "Svetlana",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Lapteva",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "VasisevS",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "89562365458",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "03.04.2003",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос со всеми пустыми полями",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-Auth-Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "firstName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "birthDate",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://test-stand.gb.ru/gateway/users/profile/22508",
+					"protocol": "https",
+					"host": [
+						"test-stand",
+						"gb",
+						"ru"
+					],
+					"path": [
+						"gateway",
+						"users",
+						"profile",
+						"22508"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "X-Auth-Token",
+			"value": "2105fa53147de52b98f4c5b6edb3083d",
+			"type": "string"
+		}
+	]
+}
